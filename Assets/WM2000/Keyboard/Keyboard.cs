@@ -14,10 +14,11 @@ public class Keyboard : MonoBehaviour
 
     private void Update()
     {
-        if (Input.anyKeyDown)
+        bool isValidKey = Input.inputString.Length > 0;
+        if (isValidKey)
         {
             PlayRandomSound();
-            SendFrameInput(Input.inputString);
+            terminal.ReceiveFrameInput(Input.inputString);
         }
     }
 
@@ -26,10 +27,5 @@ public class Keyboard : MonoBehaviour
         int randomIndex = UnityEngine.Random.Range(0, keyStrokeSounds.Length);
         audioSource.clip = keyStrokeSounds[randomIndex];
         audioSource.Play();
-    }
-
-    private void SendFrameInput(string inputThisFrame)
-    {
-        terminal.ReceiveFrameInput(inputThisFrame);
     }
 }
