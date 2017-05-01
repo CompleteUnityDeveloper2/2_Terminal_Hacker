@@ -3,27 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-// Code to be moved elsewhere and taken for granted
-public static class StringExtension
-{
-	public static string Shuffle(this string str) // Note use of this
-	{
-		char[] array = str.ToCharArray();
-		System.Random rng = new System.Random();
-		int n = array.Length;
-		while (n > 1)
-		{
-			n--;
-			int k = rng.Next(n + 1);
-			var value = array[k];
-			array[k] = array[n];
-			array[n] = value;
-		}
-		return new string(array);
-	}
-}
-
 public class Hacker : MonoBehaviour {
 
 	enum GameState 
@@ -82,8 +61,7 @@ public class Hacker : MonoBehaviour {
 		Terminal.ClearScreen ();
 		Terminal.WriteLine ("Welcome to level " + level);
 		SetNewPassword ();
-		string hint = password.Shuffle ();
-		Terminal.WriteLine ("Enter the password (hint " + hint + "):");
+		Terminal.WriteLine ("Enter your password...");
 		gameState = GameState.WaitingForPassword;
 	}
 
@@ -110,7 +88,7 @@ public class Hacker : MonoBehaviour {
 
 	void OnUserInput(string input)
 	{
-		if (input == "exit")
+		if (input == "e(x)it")
 		{
 			Terminal.Exit ();
 		}
@@ -140,7 +118,8 @@ public class Hacker : MonoBehaviour {
 		}
 		else
 		{
-			Terminal.WriteLine ("Incorrect password, try again");
+            string hint = password.Shuffle();
+            Terminal.WriteLine ("Incorrect password (hint: " + hint + ")");
 		}
 	}
 
