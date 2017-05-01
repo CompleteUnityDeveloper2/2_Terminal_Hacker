@@ -1,19 +1,29 @@
-﻿// Not written by Ben or GameDev.tv, copied from web for speed
-public static class StringExtension
+﻿public static class StringExtension
 {
-    public static string Shuffle(this string str) // Note use of this
+    public static string Anagram(this string str) // Note use of this
     {
-        char[] array = str.ToCharArray();
-        System.Random rng = new System.Random();
-        int n = array.Length;
-        while (n > 1)
+        string attempt = Shuffle(str);
+        while (attempt == str)
         {
-            n--;
-            int k = rng.Next(n + 1);
-            var value = array[k];
-            array[k] = array[n];
-            array[n] = value;
+            attempt = Shuffle(str);
         }
-        return new string(array);
+        return attempt;
+    }
+
+    // Based on something we got from the web, not re-written for clarity
+    private static string Shuffle(string str)
+    {
+        char[] characters = str.ToCharArray();
+        System.Random randomRange = new System.Random();
+        int numberOfCharacters = characters.Length;
+        while (numberOfCharacters > 1)
+        {
+            numberOfCharacters--;
+            int index = randomRange.Next(numberOfCharacters + 1);
+            var value = characters[index];
+            characters[index] = characters[numberOfCharacters];
+            characters[numberOfCharacters] = value;
+        }
+        return new string(characters);
     }
 }

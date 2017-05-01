@@ -105,10 +105,7 @@ public class Hacker : MonoBehaviour {
 
     private void GenerateNewHint()
     {
-        do
-        {
-            hint = password.Shuffle();
-        }
+        hint = password.Anagram();
         while (hint == password);
     }
 
