@@ -54,7 +54,7 @@ public class Hacker : MonoBehaviour {
 		
 	void Update()
 	{
-		print (gameState);
+		
 	}
 
 	void ShowMainMenu ()
@@ -110,7 +110,6 @@ public class Hacker : MonoBehaviour {
 
 	void OnUserInput(string input)
 	{
-		print (input);
 		if (input == "exit")
 		{
 			Terminal.Exit ();
