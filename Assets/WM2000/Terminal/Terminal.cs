@@ -38,7 +38,8 @@ public class Terminal : MonoBehaviour
 
     public static void Exit()
     {
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
+        WriteLine("Exiting terminal sesssion...");
         Application.Quit();
     }
 
