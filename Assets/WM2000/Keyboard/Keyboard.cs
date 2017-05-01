@@ -10,6 +10,8 @@ public class Keyboard : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        QualitySettings.vSyncCount = 0; // No V-Sync so Update() not held back by render
+        Application.targetFrameRate = 1000; // To minimise delay playing key sounds
     }
 
     private void Update()
