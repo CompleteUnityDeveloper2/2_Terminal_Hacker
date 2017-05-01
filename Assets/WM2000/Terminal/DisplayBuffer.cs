@@ -50,7 +50,7 @@ public class DisplayBuffer
         int column = 1;
         foreach (char c in str)
         {
-            if (column >= width)
+            if (column == width)
             {
                 output += '\n';
                 output += c;

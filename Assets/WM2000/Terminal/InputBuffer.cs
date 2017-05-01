@@ -1,6 +1,6 @@
 ﻿public class InputBuffer
 {
-    string currentInputLine;
+    string currentInputLine; // todo private
 
     public delegate void OnCommandSentHandler(string command);
     public event OnCommandSentHandler onCommandSent;

@@ -6,13 +6,14 @@ public class Hacker : MonoBehaviour {
 	{
 		MainMenu,
 		WaitingForPassword,
-		AskToPlayAgain
+        WinScreen
 	}
 
-    const string EXIT = "exit";
+    const string HELP = "help";
     const string MENU = "menu";
+    const string NEW_HINT = "hint";
 
-	string[] level1Passwords = {
+    string[] level1Passwords = {
 		"books", "isle", "shelf", "password", "font", "borrow"
 	};
 	string[] level2Passwords = {
@@ -45,13 +46,15 @@ public class Hacker : MonoBehaviour {
 
     void OnUserInput(string input)
     {
-        if (input == EXIT)
-        {
-            Terminal.Exit();
-        }
-        else if (input == MENU)
+        print("Got input: " + input); // TODO remove
+
+        if (input == MENU)
         {
             ShowMainMenu();
+        }
+        else if (gameState == GameState.WaitingForPassword && input == NEW_HINT)
+        {
+            AskForPassword(true);
         }
         else if (gameState == GameState.MainMenu)
         {
@@ -61,16 +64,12 @@ public class Hacker : MonoBehaviour {
         {
             CheckPassword(input);
         }
-        else if (gameState == GameState.AskToPlayAgain)
-        {
-            RespondToPlayAgain(input);
-        }
-        Terminal.WriteLine("P.S. Type " + EXIT + " or " + MENU + " at any time");
     }
 
     void RunMainMenu (string input)
 	{
-		if (input == "1")
+        Terminal.WriteLine("(You may type " + MENU + " at any time)");
+        if (input == "1")
 		{
             level = 1;
 			StartGame();
@@ -88,16 +87,24 @@ public class Hacker : MonoBehaviour {
     }
 
 	void StartGame()
-	{
-		Terminal.ClearScreen ();
-		Terminal.WriteLine("Welcome to level " + level);
-		password = GenerateRandomPassword();
-        hint = password.Shuffle();
-        Terminal.WriteLine("Enter your password (hint: " + hint + ")");
-        gameState = GameState.WaitingForPassword;
-	}
+    {
+        Terminal.ClearScreen();
+        password = GenerateRandomPassword();
+        AskForPassword(true);
+    }
 
-	string GenerateRandomPassword()
+    private void AskForPassword(bool generateNewHint)
+    {
+        if (generateNewHint)
+        {
+            hint = password.Shuffle();
+        }
+        Terminal.WriteLine("Type menu, or " + NEW_HINT + " to change hint");
+        Terminal.WriteLine("Enter your password, hint: " + hint);
+        gameState = GameState.WaitingForPassword;
+    }
+
+    string GenerateRandomPassword()
 	{
 		string[] passwordList = { "" };
 		if (level == 1)
@@ -117,18 +124,6 @@ public class Hacker : MonoBehaviour {
 		return passwordList[index];
 	}
 
-    private void RespondToPlayAgain(string input)
-    {
-        if (input == "yes")
-        {
-            ShowMainMenu();
-        }
-        else
-        {
-            Terminal.WriteLine("Invalid input, type yes to play again");
-        }
-    }
-
     void CheckPassword(string input)
 	{
 		if (input == password)
@@ -137,17 +132,17 @@ public class Hacker : MonoBehaviour {
         }
 		else
 		{
-            Terminal.WriteLine ("Try again (hint: " + hint + ")");
+            Terminal.WriteLine("Sorry, wrong password");
+            AskForPassword(false);
 		}
 	}
 
     // Update CheckPassword's Invoke on rename
 	void DiplayWinScreen()
 	{
+        gameState = GameState.WinScreen;
 		Terminal.ClearScreen ();
         ShowLevelReward();
-		Terminal.WriteLine ("Type yes to hack again\n");
-		gameState = GameState.AskToPlayAgain;
 	}
 
     private void ShowLevelReward()
@@ -164,6 +159,7 @@ public class Hacker : MonoBehaviour {
         {
             ShowLevel3Reward();
         }
+        Terminal.WriteLine("\nType menu to return to main menu");
     }
 
     private static void ShowLevel1Reward()
@@ -195,7 +191,7 @@ public class Hacker : MonoBehaviour {
     private static void ShowLevel3Reward()
     {
         Terminal.WriteLine(@"
- _ __   __ _ ___ __ _ 
+ _ __   __ _ ___  __ _ 
 | '_ \ / _` / __|/ _` |
 | | | | (_| \__ \ (_| |
 |_| |_|\__,_|___/\__,_|
@@ -203,6 +199,4 @@ public class Hacker : MonoBehaviour {
         );
         Terminal.WriteLine("Welcome to NASA's internal system!\n");
     }
-
-
 }

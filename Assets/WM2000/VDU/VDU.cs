@@ -13,7 +13,7 @@ public class VDU : MonoBehaviour
 
     private void Awake()
     {
-        screenText = GetComponent<Text>();
+        screenText = GetComponentInChildren<Text>();
     }
 
     // Akin to monitor refresh

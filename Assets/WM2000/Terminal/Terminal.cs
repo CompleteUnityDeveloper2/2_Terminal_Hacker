@@ -36,13 +36,6 @@ public class Terminal : MonoBehaviour
         primaryTerminal.displayBuffer.WriteLine(line);
     }
 
-    public static void Exit()
-    {
-        // UnityEditor.EditorApplication.isPlaying = false;
-        WriteLine("Exiting terminal sesssion...");
-        Application.Quit();
-    }
-
     public void NotifyCommandHandlers(string input)
     {
         var allGameObjects = FindObjectsOfType<MonoBehaviour>();
