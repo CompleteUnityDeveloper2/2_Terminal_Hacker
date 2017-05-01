@@ -1,20 +1,20 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Hacker : MonoBehaviour {
 
-	enum GameState 
-	{
-		MainMenu,
-		WaitingForPassword,
+    enum GameState
+    {
+        MainMenu,
+        WaitingForPassword,
         WinScreen
-	}
+    }
 
-    const string HELP = "help";
     const string MENU = "menu";
     const string NEW_HINT = "hint";
 
     string[] level1Passwords = {
-		"books", "isle", "shelf", "password", "font", "borrow"
+        "books", "isle", "shelf", "password", "font", "borrow"
 	};
 	string[] level2Passwords = {
 		"prisoner", "handcuffs", "holster", "uniform", "arrest"
@@ -46,8 +46,6 @@ public class Hacker : MonoBehaviour {
 
     void OnUserInput(string input)
     {
-        print("Got input: " + input); // TODO remove
-
         if (input == MENU)
         {
             ShowMainMenu();
@@ -64,6 +62,7 @@ public class Hacker : MonoBehaviour {
         {
             CheckPassword(input);
         }
+        // Consider an easter-egg as a challenge
     }
 
     void RunMainMenu (string input)
@@ -97,11 +96,20 @@ public class Hacker : MonoBehaviour {
     {
         if (generateNewHint)
         {
-            hint = password.Shuffle();
+            GenerateNewHint();
         }
         Terminal.WriteLine("Type menu, or " + NEW_HINT + " to change hint");
         Terminal.WriteLine("Enter your password, hint: " + hint);
         gameState = GameState.WaitingForPassword;
+    }
+
+    private void GenerateNewHint()
+    {
+        do
+        {
+            hint = password.Shuffle();
+        }
+        while (hint == password);
     }
 
     string GenerateRandomPassword()
@@ -120,8 +128,8 @@ public class Hacker : MonoBehaviour {
 			passwordList = level3Passwords;
 		}
 	
-		int index = Random.Range(0, passwordList.Length);
-		return passwordList[index];
+		int index = UnityEngine.Random.Range(0, passwordList.Length);
+		return passwordList[index]; // This assumes list isn't empty
 	}
 
     void CheckPassword(string input)
@@ -185,7 +193,7 @@ public class Hacker : MonoBehaviour {
 \__/-=' = '
 "
         );
-        Terminal.WriteLine("Ready for an even bigger challenge?");
+        Terminal.WriteLine("Play again for a bigger challenge");
     }
 
     private static void ShowLevel3Reward()

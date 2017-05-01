@@ -21,9 +21,9 @@
 
     private void UpdateCurrentInputLine(char c)
     {
-        if (c == '\b' && currentInputLine.Length > 0)
+        if (c == '\b')
         {
-            currentInputLine = currentInputLine.Remove(currentInputLine.Length - 1);
+            DeleteCharacters();
         }
         else if (c == '\n' || c == '\r')
         {
@@ -32,6 +32,18 @@
         else
         {
             currentInputLine += c;
+        }
+    }
+
+    private void DeleteCharacters()
+    {
+        if (currentInputLine.Length > 0)
+        {
+            currentInputLine = currentInputLine.Remove(currentInputLine.Length - 1);
+        }
+        else
+        {
+            // do nothing on delete at start of line
         }
     }
 
