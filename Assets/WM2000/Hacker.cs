@@ -22,18 +22,14 @@ public class Hacker : MonoBehaviour {
 	string[] level3Passwords = {
 		"appropriate", "ambiguous", "strifled", "environment"
 	};
-	string password;
+
+	string password, hint;
 
 	GameState gameState;
 
 	// Use this for initialization
 	void Start () {
 		ShowMainMenu ();
-	}
-		
-	void Update()
-	{
-		
 	}
 
 	void ShowMainMenu ()
@@ -61,8 +57,9 @@ public class Hacker : MonoBehaviour {
 		Terminal.ClearScreen ();
 		Terminal.WriteLine ("Welcome to level " + level);
 		SetNewPassword ();
-		Terminal.WriteLine ("Enter your password...");
-		gameState = GameState.WaitingForPassword;
+        hint = password.Shuffle();
+        Terminal.WriteLine ("Enter your password (hint: " + hint + ")");
+        gameState = GameState.WaitingForPassword;
 	}
 
 	void SetNewPassword()
@@ -88,7 +85,7 @@ public class Hacker : MonoBehaviour {
 
 	void OnUserInput(string input)
 	{
-		if (input == "e(x)it")
+		if (input == "exit")
 		{
 			Terminal.Exit ();
 		}
@@ -106,8 +103,11 @@ public class Hacker : MonoBehaviour {
 			{
 				ShowMainMenu ();
 			}
+            else
+            {
+                Terminal.WriteLine("Invalid input, type yes or exit");
+            }
 		}
-
 	}
 
 	void CheckPassword(string input)
@@ -118,8 +118,7 @@ public class Hacker : MonoBehaviour {
 		}
 		else
 		{
-            string hint = password.Shuffle();
-            Terminal.WriteLine ("Incorrect password (hint: " + hint + ")");
+            Terminal.WriteLine ("Try again (hint: " + hint + ")");
 		}
 	}
 
