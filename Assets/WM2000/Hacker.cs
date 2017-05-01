@@ -50,19 +50,28 @@ public class Hacker : MonoBehaviour {
         {
             ShowMainMenu();
         }
-        else if (gameState == GameState.WaitingForPassword && input == NEW_HINT)
-        {
-            AskForPassword(true);
-        }
         else if (gameState == GameState.MainMenu)
         {
             RunMainMenu(input);
         }
         else if (gameState == GameState.WaitingForPassword)
         {
-            CheckPassword(input);
+            RespondToPasswordEntry(input);
         }
         // Consider an easter-egg as a challenge
+    }
+
+    private void RespondToPasswordEntry(string input)
+    {
+        if (input == NEW_HINT)
+        {
+            hint = password.Anagram();
+            AskForPassword();
+        }
+        else
+        {
+            CheckPassword(input);
+        }
     }
 
     void RunMainMenu (string input)
@@ -89,24 +98,15 @@ public class Hacker : MonoBehaviour {
     {
         Terminal.ClearScreen();
         password = GenerateRandomPassword();
-        AskForPassword(true);
+        hint = password.Anagram();
+        AskForPassword();
     }
 
-    private void AskForPassword(bool generateNewHint)
+    private void AskForPassword()
     {
-        if (generateNewHint)
-        {
-            GenerateNewHint();
-        }
         Terminal.WriteLine("Type menu, or " + NEW_HINT + " to change hint");
         Terminal.WriteLine("Enter your password, hint: " + hint);
         gameState = GameState.WaitingForPassword;
-    }
-
-    private void GenerateNewHint()
-    {
-        hint = password.Anagram();
-        while (hint == password);
     }
 
     string GenerateRandomPassword()
@@ -138,7 +138,7 @@ public class Hacker : MonoBehaviour {
 		else
 		{
             Terminal.WriteLine("Sorry, wrong password");
-            AskForPassword(false);
+            AskForPassword();
 		}
 	}
 
