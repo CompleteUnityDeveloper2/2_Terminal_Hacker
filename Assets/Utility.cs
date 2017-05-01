@@ -1,4 +1,4 @@
-﻿// Code to be moved elsewhere and taken for granted
+﻿// Not written by Ben or GameDev.tv, copied from web for speed
 public static class StringExtension
 {
     public static string Shuffle(this string str) // Note use of this

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hacker : MonoBehaviour {
 
@@ -26,7 +23,8 @@ public class Hacker : MonoBehaviour {
 	};
 
     int level;
-    string password, hint;
+    string password;
+    string hint;
 	GameState gameState;
 
 	// Use this for initialization
@@ -80,7 +78,7 @@ public class Hacker : MonoBehaviour {
 			passwordList = level3Passwords;
 		}
 	
-		int index = UnityEngine.Random.Range(0,passwordList.Length);
+		int index = Random.Range(0, passwordList.Length);
 		password = passwordList[index];
 	}
 
@@ -126,20 +124,20 @@ public class Hacker : MonoBehaviour {
 	{
 		if (input == password)
 		{
-			AskToPlayAgain ();
-		}
+            DiplayWinScreen ();
+        }
 		else
 		{
             Terminal.WriteLine ("Try again (hint: " + hint + ")");
 		}
 	}
 
-	void AskToPlayAgain()
+    // Update CheckPassword's Invoke on rename
+	void DiplayWinScreen()
 	{
 		Terminal.ClearScreen ();
 		Terminal.WriteLine ("Well done! You're an ace hacker\n");
-		Terminal.WriteLine ("Type yes to hack again");
+		Terminal.WriteLine ("Type yes to hack again\n");
 		gameState = GameState.AskToPlayAgain;
 	}
-
 }
