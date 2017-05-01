@@ -12,7 +12,9 @@ public class Hacker : MonoBehaviour {
 		AskToPlayAgain
 	}
 
-	int level;
+    const string EXIT = "exit";
+    const string MENU = "menu";
+
 	string[] level1Passwords = {
 		"donkey", "coal", "monkey"
 	};
@@ -23,8 +25,8 @@ public class Hacker : MonoBehaviour {
 		"appropriate", "ambiguous", "strifled", "environment"
 	};
 
-	string password, hint;
-
+    int level;
+    string password, hint;
 	GameState gameState;
 
 	// Use this for initialization
@@ -83,34 +85,44 @@ public class Hacker : MonoBehaviour {
 	}
 
 
-	void OnUserInput(string input)
-	{
-		if (input == "exit")
-		{
-			Terminal.Exit ();
-		}
-		else if (gameState == GameState.MainMenu)
-		{
-			RunMainMenu (input);
-		}
-		else if (gameState == GameState.WaitingForPassword)
-		{
-			CheckPassword (input);
-		}
-		else if (gameState == GameState.AskToPlayAgain)
-		{
-			if (input == "yes")
-			{
-				ShowMainMenu ();
-			}
-            else
-            {
-                Terminal.WriteLine("Invalid input, type yes or exit");
-            }
-		}
-	}
+    void OnUserInput(string input)
+    {
+        if (input == EXIT)
+        {
+            Terminal.Exit();
+        }
+        else if (input == MENU)
+        {
+            ShowMainMenu();
+        }
+        else if (gameState == GameState.MainMenu)
+        {
+            RunMainMenu(input);
+        }
+        else if (gameState == GameState.WaitingForPassword)
+        {
+            CheckPassword(input);
+        }
+        else if (gameState == GameState.AskToPlayAgain)
+        {
+            RespondToPlayAgain(input);
+        }
+        Terminal.WriteLine("(You  type " + EXIT + " or " + MENU + " at any time)");
+    }
 
-	void CheckPassword(string input)
+    private void RespondToPlayAgain(string input)
+    {
+        if (input == "yes")
+        {
+            ShowMainMenu();
+        }
+        else
+        {
+            Terminal.WriteLine("Invalid input, type yes to play again");
+        }
+    }
+
+    void CheckPassword(string input)
 	{
 		if (input == password)
 		{
@@ -126,7 +138,7 @@ public class Hacker : MonoBehaviour {
 	{
 		Terminal.ClearScreen ();
 		Terminal.WriteLine ("Well done! You're an ace hacker\n");
-		Terminal.WriteLine ("Hack again? (yes / exit)");
+		Terminal.WriteLine ("Type yes to hack again");
 		gameState = GameState.AskToPlayAgain;
 	}
 
