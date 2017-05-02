@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Assertions;
 
 public class Keyboard : MonoBehaviour
 {
@@ -6,12 +7,26 @@ public class Keyboard : MonoBehaviour
     [SerializeField] Terminal terminal;
 
     AudioSource audioSource;
+    bool isPluggedIn = false;
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         QualitySettings.vSyncCount = 0; // No V-Sync so Update() not held back by render
         Application.targetFrameRate = 1000; // To minimise delay playing key sounds
+        CheckIfPluggedIn();
+    }
+
+    private void CheckIfPluggedIn()
+    {
+        if (terminal)
+        {
+            isPluggedIn = true;
+        }
+        else
+        {
+            Debug.LogWarning("Keyboard not connected to a terminal");
+        }
     }
 
     private void Update()
@@ -20,6 +35,9 @@ public class Keyboard : MonoBehaviour
         if (isValidKey)
         {
             PlayRandomSound();
+        }
+        if (isPluggedIn)
+        {
             terminal.ReceiveFrameInput(Input.inputString);
         }
     }

@@ -14,7 +14,7 @@ public class Hacker : MonoBehaviour {
     const string NEW_HINT = "hint";
 
     string[] level1Passwords = {
-        "books", "isle", "shelf", "password", "font", "borrow"
+        "books", "aisle", "shelf", "password", "font", "borrow"
 	};
 	string[] level2Passwords = {
 		"prisoner", "handcuffs", "holster", "uniform", "arrest"
