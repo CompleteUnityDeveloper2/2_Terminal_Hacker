@@ -19,3 +19,8 @@ Here are the lectures of the course for this section...
 1. About the provided terminal asset.
 2. You will learn foundational C# skills.
 3. Experienced developers should skim this section.
+
+### 2 Setup & Import Asset Pack
+1. How to chose your exact project folder name.
+2. Rename a project in Unity.
+3. Import your first asset pack.
