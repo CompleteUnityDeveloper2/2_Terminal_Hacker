@@ -24,3 +24,8 @@ Here are the lectures of the course for this section...
 1. How to chose your exact project folder name.
 2. Rename a project in Unity.
 3. Import your first asset pack.
+
+
+### 3 From Statements To Namespaces
+1. Practice creating and attaching a `.cs` script.
+2. An overview of the code that comes pre-written.
