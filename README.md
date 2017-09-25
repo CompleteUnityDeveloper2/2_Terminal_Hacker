@@ -25,7 +25,12 @@ Here are the lectures of the course for this section...
 2. Rename a project in Unity.
 3. Import your first asset pack.
 
-
 ### 3 From Statements To Namespaces
 1. Practice creating and attaching a `.cs` script.
 2. An overview of the code that comes pre-written.
+
+### 4 Strings & Whitespace
+1. What a string is as an analogy.
+2. Our `Terminal.Writeline()` statement.
+3. Our `Terminal.ClearScreen()` statement.
+4. Creating a very simple menu.
