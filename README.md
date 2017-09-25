@@ -4,7 +4,7 @@ This is the long-awaited sequel to the Complete Unity Developer - one of the mos
 
 You're welcome to download, fork or do whatever else legal with all the files! The real value is in our huge, high-quality online tutorials that accompany this repo.
 
-## By In This Section
+## In This Section
 C# functions, refactoring, enumerations, basic state machines. Arguments, parameters, strings, conditionals, variables. Whitespace management, bug fixes and basic game design. (Ref: TH_CU2)
 
 ## How To Build / Compile
