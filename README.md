@@ -34,3 +34,8 @@ Here are the lectures of the course for this section...
 2. Our `Terminal.Writeline()` statement.
 3. Our `Terminal.ClearScreen()` statement.
 4. Creating a very simple menu.
+
+### 5 Your First Function
+1. What a function is.
+2. The format of C# functions.
+3. About encapsulation & refactoring.
