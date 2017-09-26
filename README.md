@@ -40,8 +40,12 @@ Here are the lectures of the course for this section...
 2. The format of C# functions.
 3. About encapsulation & refactoring.
 
-
 ### 6 Receiving C# Messages In Unity
 1. A message vs a function.
 2. How to use messages in Unity.
 3. How to get user input with our WM2000 terminal.
+
+
+### 7 C# Operators & Expressions
+1. An expression e-valuates to a value.
+2. The + operator can be used to join strings.

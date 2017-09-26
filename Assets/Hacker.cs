@@ -20,6 +20,6 @@ public class Hacker : MonoBehaviour {
     }
 
     void OnUserInput(string input) {
-        print(input);
+        Terminal.WriteLine("You typed: " + input);
     }
 }
