@@ -18,4 +18,8 @@ public class Hacker : MonoBehaviour {
         Terminal.WriteLine("Press 3 for NASA");
         Terminal.WriteLine("Enter your selection:");
     }
+
+    void OnUserInput(string input) {
+        print(input);
+    }
 }
