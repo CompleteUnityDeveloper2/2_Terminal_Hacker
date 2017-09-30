@@ -20,6 +20,21 @@ public class Hacker : MonoBehaviour {
     }
 
     void OnUserInput(string input) {
-        Terminal.WriteLine("You typed: " + input);
+        if (input == "1")
+        {
+            Terminal.WriteLine("You chose option 1");
+        }
+        else if (input == "2")
+        {
+            Terminal.WriteLine("You chose option 2");
+        }
+        else if (input == "3")
+        {
+            Terminal.WriteLine("You chose option 3");
+        }
+        else
+        {
+            Terminal.WriteLine("I'm not sure how to respond!");
+        }
     }
 }

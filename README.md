@@ -45,7 +45,12 @@ Here are the lectures of the course for this section...
 2. How to use messages in Unity.
 3. How to get user input with our WM2000 terminal.
 
-
 ### 7 C# Operators & Expressions
-1. An expression e-valuates to a value.
+1. An expression evaluates to a value.
 2. The + operator can be used to join strings.
+
+### 8 Conditional Program Flow Using if
+1. Introducing the `==` operator.
+2. What a boolean (`True` / `False`) values are.
+3. The structure of an `if` statement in C#.
+4. Practical uses of `if` and `else`.
