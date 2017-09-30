@@ -89,6 +89,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4471914644488260}
+  - component: {fileID: 114960587071711332}
   m_Layer: 0
   m_Name: WM2000
   m_TagString: Untagged
@@ -388,10 +389,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 138991e1d9d76cc41b0a352f3d80b23f, type: 3}
-    m_FontSize: 17
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 41
     m_Alignment: 0
     m_AlignByGeometry: 1
@@ -496,6 +497,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a2d698955625f3440a7451602b0277a4, type: 3}
   - {fileID: 8300000, guid: dc16e8284dfc82a40a4236c36372ecdc, type: 3}
   terminal: {fileID: 114120314600636800}
+--- !u!114 &114960587071711332
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1790976615478414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4475e59fee5da8e4aae0be43069c0925, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &222674138116742422
 CanvasRenderer:
   m_ObjectHideFlags: 1

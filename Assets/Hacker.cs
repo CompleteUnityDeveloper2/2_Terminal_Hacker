@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Hacker : MonoBehaviour {
 
+    int level;
+
 	// Use this for initialization
 	void Start () {
         ShowMainMenu();
@@ -22,19 +24,27 @@ public class Hacker : MonoBehaviour {
     void OnUserInput(string input) {
         if (input == "1")
         {
-            Terminal.WriteLine("You chose option 1");
+            level = 1;
+            StartGame();
         }
         else if (input == "2")
         {
-            Terminal.WriteLine("You chose option 2");
+            level = 2;
+            StartGame();
         }
         else if (input == "3")
         {
-            Terminal.WriteLine("You chose option 3");
-        }
+            level = 3;
+            StartGame();
+        }c
         else
         {
             Terminal.WriteLine("I'm not sure how to respond!");
         }
+    }
+
+    void StartGame()
+    {
+        Terminal.WriteLine("You chose option " + level);
     }
 }

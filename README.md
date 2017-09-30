@@ -1,6 +1,8 @@
 # Complete Unity Developer 2.0 - Section 2 - Terminal Hacker.
 
-This is the long-awaited sequel to the Complete Unity Developer - one of the most successful e-learning courses on the internet! Completely re-worked from scratch with brand-new projects, our latest teaching techniques,. You will benefit from the fact we have already taught over 250,000 students game development, many shipping commercial games as a result.
+This is the long-awaited sequel to the Complete Unity Developer - one of the most successful e-learning courses on the internet! Completely re-worked from scratch with brand-new projects, our latest teaching techniques.
+
+You will benefit from the fact we have already taught over 293,000 students game development, many shipping commercial games as a result.
 
 You're welcome to download, fork or do whatever else legal with all the files! The real value is in our huge, high-quality online tutorials that accompany this repo.
 
@@ -47,10 +49,15 @@ Here are the lectures of the course for this section...
 
 ### 7 C# Operators & Expressions
 1. An expression evaluates to a value.
-2. The + operator can be used to join strings.
+2. The `+` operator can be used to join strings.
 
 ### 8 Conditional Program Flow Using if
 1. Introducing the `==` operator.
-2. What a boolean (`True` / `False`) values are.
+2. What boolean (`True` / `False`) values are.
 3. The structure of an `if` statement in C#.
 4. Practical uses of `if` and `else`.
+
+### 9 Member Variables To Hold State
+1. How to share variables between functions.
+2. What to use "member variables" for.
+3. Practical use for our game `level`.
