@@ -61,3 +61,8 @@ Here are the lectures of the course for this section...
 1. How to share variables between functions.
 2. What to use "member variables" for.
 3. Practical use for our game `level`.
+
+### 10 Practice Makes Perfect
+1. Use everything you've learned so far.
+2. Learn more about dealing with errors.
+3. See how you can write a function "early".

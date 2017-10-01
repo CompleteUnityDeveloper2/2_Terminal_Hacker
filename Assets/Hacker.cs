@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hacker : MonoBehaviour {
 
     int level;
+    string password;
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +37,7 @@ public class Hacker : MonoBehaviour {
         {
             level = 3;
             StartGame();
-        }c
+        }
         else
         {
             Terminal.WriteLine("I'm not sure how to respond!");
@@ -45,6 +46,25 @@ public class Hacker : MonoBehaviour {
 
     void StartGame()
     {
-        Terminal.WriteLine("You chose option " + level);
+        Terminal.ClearScreen();
+        if (level == 1)
+        {
+            password = "table";
+        }
+        else if (level == 2)
+        {
+            password = "dinosaur";
+        }
+        else if (level == 3)
+        {
+            password = "combobulation";
+        }
+        AskForPassword();
+    }
+
+    void AskForPassword()
+    {
+        Terminal.WriteLine("Enter your password: ");
+        print(password);
     }
 }
