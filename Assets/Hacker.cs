@@ -23,6 +23,7 @@ public class Hacker : MonoBehaviour {
     }
 
     void OnUserInput(string input) {
+<<<<<<< HEAD
         if (input == "1")
         {
             level = 1;
@@ -66,5 +67,8 @@ public class Hacker : MonoBehaviour {
     {
         Terminal.WriteLine("Enter your password: ");
         print(password);
+=======
+        print(input);
+>>>>>>> patch
     }
 }

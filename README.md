@@ -42,6 +42,21 @@ Here are the lectures of the course for this section...
 2. The format of C# functions.
 3. About encapsulation & refactoring.
 
+<<<<<<< HEAD
+=======
+### 5b Introducing Variables
+1. What a variable is.
+2. How to use the 'var' keyword.
+3. An example of using a variable.
+
+### 5c Functions With Variable Parameters
+1. The curry recipe analogy.
+2. We DECLARE our function exists.
+3. We DEFINE what it does.
+4. We CALL our function.
+5. We may PASS a variable as a parameter.
+
+>>>>>>> patch
 ### 6 Receiving C# Messages In Unity
 1. A message vs a function.
 2. How to use messages in Unity.
