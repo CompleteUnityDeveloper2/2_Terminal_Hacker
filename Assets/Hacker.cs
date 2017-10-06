@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Hacker : MonoBehaviour
 {
@@ -102,7 +101,7 @@ public class Hacker : MonoBehaviour
                 Debug.LogError("Invalid level");
                 break;
         }
-        int index = UnityEngine.Random.Range(0, passwordList.Length);
+        int index = Random.Range(0, passwordList.Length);
         return passwordList[index]; // This assumes list isn't empty
     }
 
