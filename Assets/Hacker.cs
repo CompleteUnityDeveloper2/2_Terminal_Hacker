@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class Hacker : MonoBehaviour {
 
-    enum GameState
+    const string MENU = "menu";
+
+    enum Screen
     {
         MainMenu,
         WaitingForPassword,
         WinScreen
     }
-
-    const string MENU = "menu";
 
     string[] level1Passwords = {
         "books", "aisle", "shelf", "password", "font", "borrow"
@@ -24,7 +24,7 @@ public class Hacker : MonoBehaviour {
 
     int level;
     string password;
-	GameState gameState;
+    Screen currentScreen;
 
 	// Use this for initialization
 	void Start () {
@@ -39,24 +39,23 @@ public class Hacker : MonoBehaviour {
 		Terminal.WriteLine("Press 2 for the police station");
 		Terminal.WriteLine("Press 3 for NASA\n");
 		Terminal.WriteLine("Enter your selection: ");
-		gameState = GameState.MainMenu;
+		currentScreen = Screen.MainMenu;
 	}
 
     void OnUserInput(string input)
     {
-        if (input == MENU)
+        if (input == MENU) // Can always go to menu
         {
             ShowMainMenu();
         }
-        else if (gameState == GameState.MainMenu)
+        else if (currentScreen == Screen.MainMenu)
         {
             RunMainMenu(input);
         }
-        else if (gameState == GameState.WaitingForPassword)
+        else if (currentScreen == Screen.WaitingForPassword)
         {
             CheckPassword(input);
         }
-        // Consider an easter-egg as a challenge
     }
 
     void RunMainMenu (string input)
@@ -90,7 +89,7 @@ public class Hacker : MonoBehaviour {
     {
         Terminal.WriteLine("Type m");
         Terminal.WriteLine("Enter your password, hint: " + password.Anagram());
-        gameState = GameState.WaitingForPassword;
+        currentScreen = Screen.WaitingForPassword;
     }
 
     string GenerateRandomPassword()
@@ -129,7 +128,7 @@ public class Hacker : MonoBehaviour {
     // Update CheckPassword's Invoke on rename
 	void DiplayWinScreen()
 	{
-        gameState = GameState.WinScreen;
+        currentScreen = Screen.WinScreen;
 		Terminal.ClearScreen ();
         ShowLevelReward();
 	}
