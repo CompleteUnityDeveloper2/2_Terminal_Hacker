@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Hacker : MonoBehaviour {
 
-    const string MENU = "menu";
+    const string MENU_HINT = "You may type menu at any time.";
 
     enum Screen
     {
@@ -44,7 +44,7 @@ public class Hacker : MonoBehaviour {
 
     void OnUserInput(string input)
     {
-        if (input == MENU) // Can always go to menu
+        if (input == MENU_HINT) // Can always go to menu
         {
             ShowMainMenu();
         }
@@ -60,7 +60,7 @@ public class Hacker : MonoBehaviour {
 
     void RunMainMenu (string input)
 	{
-        Terminal.WriteLine("(You may type " + MENU + " at any time)");
+        Terminal.WriteLine(MENU_HINT);
         if (input == "1")
 		{
             level = 1;
@@ -87,7 +87,7 @@ public class Hacker : MonoBehaviour {
 
     private void AskForPassword()
     {
-        Terminal.WriteLine("Type m");
+        Terminal.WriteLine(MENU_HINT);
         Terminal.WriteLine("Enter your password, hint: " + password.Anagram());
         currentScreen = Screen.WaitingForPassword;
     }
@@ -147,7 +147,7 @@ public class Hacker : MonoBehaviour {
         {
             ShowLevel3Reward();
         }
-        Terminal.WriteLine("\nType " + MENU + " to return to main menu");
+        Terminal.WriteLine(MENU_HINT);
     }
 
     private static void ShowLevel1Reward()
