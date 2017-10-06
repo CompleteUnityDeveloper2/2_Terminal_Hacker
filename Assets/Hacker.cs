@@ -24,7 +24,8 @@ public class Hacker : MonoBehaviour {
 	};
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		ShowMainMenu ();
 	}
 
@@ -72,33 +73,32 @@ public class Hacker : MonoBehaviour {
 	void StartGame()
     {
         Terminal.ClearScreen();
-        password = GenerateRandomPassword(level);
+        password = GenerateRandomPassword();
         AskForPassword();
     }
 
-    private void AskForPassword()
+    void AskForPassword()
     {
         Terminal.WriteLine(MENU_HINT);
         Terminal.WriteLine("Enter your password, hint: " + password.Anagram());
         currentScreen = Screen.WaitingForPassword;
     }
 
-    string GenerateRandomPassword(int level)
-	{
-		string[] passwordList = { "" };
-		if (level == 1)
-		{
-			passwordList = level1Passwords;
-		} 
-		else if (level == 2)
-		{
-			passwordList = level2Passwords;
-		}
-		else if (level == 3)
-		{
-			passwordList = level3Passwords;
-		}
-	
+    string GenerateRandomPassword()
+    {
+        string[] passwordList = { "" };
+        switch (level)
+        {
+            case 1:
+                passwordList = level1Passwords;
+                break;
+            case 2:
+                passwordList = level1Passwords;
+                break;
+            case 3:
+                passwordList = level1Passwords;
+                break;
+        }
 		int index = UnityEngine.Random.Range(0, passwordList.Length);
 		return passwordList[index]; // This assumes list isn't empty
 	}
@@ -116,15 +116,14 @@ public class Hacker : MonoBehaviour {
 		}
 	}
 
-    // Update CheckPassword's Invoke on rename
 	void DiplayWinScreen()
 	{
         currentScreen = Screen.WinScreen;
-		Terminal.ClearScreen ();
+		Terminal.ClearScreen();
         ShowLevelReward();
 	}
 
-    private void ShowLevelReward()
+    void ShowLevelReward()
     {
         if (level == 1)
         {
@@ -141,7 +140,7 @@ public class Hacker : MonoBehaviour {
         Terminal.WriteLine(MENU_HINT);
     }
 
-    private static void ShowLevel1Reward()
+    void ShowLevel1Reward()
     {
         Terminal.WriteLine("Have a book...");
         Terminal.WriteLine(@"
@@ -155,7 +154,7 @@ public class Hacker : MonoBehaviour {
         Terminal.WriteLine("Play again for a bigger challenge");
     }
 
-    private static void ShowLevel2Reward()
+    void ShowLevel2Reward()
     {
         Terminal.WriteLine("You got the prison key!");
         Terminal.WriteLine(@"
@@ -167,7 +166,7 @@ public class Hacker : MonoBehaviour {
         Terminal.WriteLine("Play again for a bigger challenge");
     }
 
-    private static void ShowLevel3Reward()
+    void ShowLevel3Reward()
     {
         Terminal.WriteLine(@"
  _ __   __ _ ___  __ _ 
