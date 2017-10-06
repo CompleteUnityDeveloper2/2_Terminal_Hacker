@@ -11,7 +11,6 @@ public class Hacker : MonoBehaviour {
     }
 
     const string MENU = "menu";
-    const string NEW_HINT = "hint";
 
     string[] level1Passwords = {
         "books", "aisle", "shelf", "password", "font", "borrow"
@@ -25,7 +24,6 @@ public class Hacker : MonoBehaviour {
 
     int level;
     string password;
-    string hint;
 	GameState gameState;
 
 	// Use this for initialization
@@ -56,22 +54,9 @@ public class Hacker : MonoBehaviour {
         }
         else if (gameState == GameState.WaitingForPassword)
         {
-            RespondToPasswordEntry(input);
-        }
-        // Consider an easter-egg as a challenge
-    }
-
-    private void RespondToPasswordEntry(string input)
-    {
-        if (input == NEW_HINT)
-        {
-            hint = password.Anagram();
-            AskForPassword();
-        }
-        else
-        {
             CheckPassword(input);
         }
+        // Consider an easter-egg as a challenge
     }
 
     void RunMainMenu (string input)
@@ -98,14 +83,13 @@ public class Hacker : MonoBehaviour {
     {
         Terminal.ClearScreen();
         password = GenerateRandomPassword();
-        hint = password.Anagram();
         AskForPassword();
     }
 
     private void AskForPassword()
     {
-        Terminal.WriteLine("Type menu, or " + NEW_HINT + " to change hint");
-        Terminal.WriteLine("Enter your password, hint: " + hint);
+        Terminal.WriteLine("Type m");
+        Terminal.WriteLine("Enter your password, hint: " + password.Anagram());
         gameState = GameState.WaitingForPassword;
     }
 
@@ -164,7 +148,7 @@ public class Hacker : MonoBehaviour {
         {
             ShowLevel3Reward();
         }
-        Terminal.WriteLine("\nType menu to return to main menu");
+        Terminal.WriteLine("\nType " + MENU + " to return to main menu");
     }
 
     private static void ShowLevel1Reward()
