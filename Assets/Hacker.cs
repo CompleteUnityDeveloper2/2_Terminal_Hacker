@@ -1,13 +1,12 @@
 ﻿using System;
 using UnityEngine;
 
-enum Screen { MainMenu, WaitingForPassword, WinScreen } // TODO discuss
-   
-public class Hacker : MonoBehaviour {
-    
+public class Hacker : MonoBehaviour
+{
     const string MENU_HINT = "You may type menu at any time.";
 
     // Game state variables
+    enum Screen { MainMenu, WaitingForPassword, WinScreen }
     Screen currentScreen;
     int level;
     string password;
@@ -15,30 +14,30 @@ public class Hacker : MonoBehaviour {
     // Game configuration data
     string[] level1Passwords = {
         "books", "aisle", "shelf", "password", "font", "borrow"
-	};
-	string[] level2Passwords = {
-		"prisoner", "handcuffs", "holster", "uniform", "arrest"
-	};
-	string[] level3Passwords = {
-		"starfield", "telescope", "environment", "exploration", "astronauts"
-	};
+    };
+    string[] level2Passwords = {
+        "prisoner", "handcuffs", "holster", "uniform", "arrest"
+    };
+    string[] level3Passwords = {
+        "starfield", "telescope", "environment", "exploration", "astronauts"
+    };
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-		ShowMainMenu ();
-	}
+        ShowMainMenu();
+    }
 
-	void ShowMainMenu ()
-	{
+    void ShowMainMenu()
+    {
         currentScreen = Screen.MainMenu;
-		Terminal.ClearScreen ();
-		Terminal.WriteLine("What would you like to hack into?\n");
-		Terminal.WriteLine("Press 1 for the local library");
-		Terminal.WriteLine("Press 2 for the police station");
-		Terminal.WriteLine("Press 3 for NASA\n");
-		Terminal.WriteLine("Enter your selection: ");
-	}
+        Terminal.ClearScreen();
+        Terminal.WriteLine("What would you like to hack into?");
+        Terminal.WriteLine("Press 1 for the local library");
+        Terminal.WriteLine("Press 2 for the police station");
+        Terminal.WriteLine("Press 3 for NASA");
+        Terminal.WriteLine("Enter your selection: ");
+    }
 
     void OnUserInput(string input)
     {
@@ -59,18 +58,19 @@ public class Hacker : MonoBehaviour {
     void RunMainMenu(string input)
     {
         Terminal.WriteLine(MENU_HINT);
-        if (input == "1" || input == "2" || input == "3")
-		{
-            level = int.Parse(input);
-			StartGame();
-		}
-        else 
+        bool validLevelNumber = input == "1" || input == "2" || input == "3";
+        if (validLevelNumber)
         {
-            Terminal.WriteLine("Invalid level, please try again.");     
+            level = int.Parse(input);
+            StartGame();
+        }
+        else
+        {
+            Terminal.WriteLine("Invalid level, please try again.");
         }
     }
 
-	void StartGame()
+    void StartGame()
     {
         Terminal.ClearScreen();
         password = GenerateRandomPassword();
@@ -79,9 +79,9 @@ public class Hacker : MonoBehaviour {
 
     void AskForPassword()
     {
+        currentScreen = Screen.WaitingForPassword;
         Terminal.WriteLine(MENU_HINT);
         Terminal.WriteLine("Enter your password, hint: " + password.Anagram());
-        currentScreen = Screen.WaitingForPassword;
     }
 
     string GenerateRandomPassword()
@@ -93,88 +93,83 @@ public class Hacker : MonoBehaviour {
                 passwordList = level1Passwords;
                 break;
             case 2:
-                passwordList = level1Passwords;
+                passwordList = level2Passwords;
                 break;
             case 3:
-                passwordList = level1Passwords;
+                passwordList = level3Passwords;
+                break;
+            default:
+                Debug.LogError("Invalid level");
                 break;
         }
-		int index = UnityEngine.Random.Range(0, passwordList.Length);
-		return passwordList[index]; // This assumes list isn't empty
-	}
+        int index = UnityEngine.Random.Range(0, passwordList.Length);
+        return passwordList[index]; // This assumes list isn't empty
+    }
 
     void CheckPassword(string input)
-	{
-		if (input == password)
-		{
-            DiplayWinScreen ();
+    {
+        if (input == password)
+        {
+            DiplayWinScreen();
         }
-		else
-		{
+        else
+        {
             Terminal.WriteLine("Sorry, wrong password");
             AskForPassword();
-		}
-	}
+        }
+    }
 
-	void DiplayWinScreen()
-	{
-        currentScreen = Screen.WinScreen;
-		Terminal.ClearScreen();
-        ShowLevelReward();
-	}
-
-    void ShowLevelReward()
+    void DiplayWinScreen()
     {
-        if (level == 1)
-        {
-            ShowLevel1Reward();
-        }
-        else if (level == 2)
-        {
-            ShowLevel2Reward();
-        }
-        else if (level == 3)
-        {
-            ShowLevel3Reward();
-        }
+        currentScreen = Screen.WinScreen;
+        Terminal.ClearScreen();
+        ShowLevelReward();
         Terminal.WriteLine(MENU_HINT);
     }
 
-    void ShowLevel1Reward()
+    // Note game assets build into this method
+    void ShowLevelReward()
     {
-        Terminal.WriteLine("Have a book...");
-        Terminal.WriteLine(@"
+        switch (level)
+        {
+            case 1:
+                Terminal.WriteLine("Have a book...");
+                Terminal.WriteLine(@"
     _______
    /      //
   /      //
  /______//
 (______(/
 "
-        );
-        Terminal.WriteLine("Play again for a bigger challenge");
-    }
+                );
+                Terminal.WriteLine("Play again for a bigger challenge");
+                break;
 
-    void ShowLevel2Reward()
-    {
-        Terminal.WriteLine("You got the prison key!");
-        Terminal.WriteLine(@"
+            case 2:
+                Terminal.WriteLine("You got the prison key!");
+                Terminal.WriteLine(@"
  __
 /o \_______
 \__/-=' = '
 "
-        );
-        Terminal.WriteLine("Play again for a bigger challenge");
-    }
+                );
+                Terminal.WriteLine("Play again for a bigger challenge");
+                break;
 
-    void ShowLevel3Reward()
-    {
-        Terminal.WriteLine(@"
+            case 3:
+                Terminal.WriteLine(@"
  _ __   __ _ ___  __ _ 
 | '_ \ / _` / __|/ _` |
 | | | | (_| \__ \ (_| |
 |_| |_|\__,_|___/\__,_|
 "
-        );
-        Terminal.WriteLine("Welcome to NASA's internal system!\n");
+                );
+                Terminal.WriteLine("Welcome to NASA's internal system!");
+                break;
+
+            default:
+                Debug.LogError("No level reward for level " + level);
+                break;
+        }
     }
 }
