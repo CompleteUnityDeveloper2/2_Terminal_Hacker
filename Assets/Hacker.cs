@@ -1,17 +1,18 @@
 ﻿using System;
 using UnityEngine;
 
+enum Screen { MainMenu, WaitingForPassword, WinScreen } // TODO discuss
+   
 public class Hacker : MonoBehaviour {
-
+    
     const string MENU_HINT = "You may type menu at any time.";
 
-    enum Screen
-    {
-        MainMenu,
-        WaitingForPassword,
-        WinScreen
-    }
+    // Game state variables
+    Screen currentScreen;
+    int level;
+    string password;
 
+    // Game configuration data
     string[] level1Passwords = {
         "books", "aisle", "shelf", "password", "font", "borrow"
 	};
@@ -22,10 +23,6 @@ public class Hacker : MonoBehaviour {
 		"starfield", "telescope", "environment", "exploration", "astronauts"
 	};
 
-    int level;
-    string password;
-    Screen currentScreen;
-
 	// Use this for initialization
 	void Start () {
 		ShowMainMenu ();
@@ -33,18 +30,18 @@ public class Hacker : MonoBehaviour {
 
 	void ShowMainMenu ()
 	{
+        currentScreen = Screen.MainMenu;
 		Terminal.ClearScreen ();
 		Terminal.WriteLine("What would you like to hack into?\n");
 		Terminal.WriteLine("Press 1 for the local library");
 		Terminal.WriteLine("Press 2 for the police station");
 		Terminal.WriteLine("Press 3 for NASA\n");
 		Terminal.WriteLine("Enter your selection: ");
-		currentScreen = Screen.MainMenu;
 	}
 
     void OnUserInput(string input)
     {
-        if (input == MENU_HINT) // Can always go to menu
+        if (input == "menu") // Can always go to menu
         {
             ShowMainMenu();
         }
@@ -58,30 +55,24 @@ public class Hacker : MonoBehaviour {
         }
     }
 
-    void RunMainMenu (string input)
-	{
+    void RunMainMenu(string input)
+    {
         Terminal.WriteLine(MENU_HINT);
-        if (input == "1")
+        if (input == "1" || input == "2" || input == "3")
 		{
-            level = 1;
+            level = int.Parse(input);
 			StartGame();
 		}
-        else if (input == "2")
+        else 
         {
-            level = 2;
-            StartGame();
-        }
-        else if (input == "3")
-        {
-            level = 3;
-            StartGame();
+            Terminal.WriteLine("Invalid level, please try again.");     
         }
     }
 
 	void StartGame()
     {
         Terminal.ClearScreen();
-        password = GenerateRandomPassword();
+        password = GenerateRandomPassword(level);
         AskForPassword();
     }
 
@@ -92,7 +83,7 @@ public class Hacker : MonoBehaviour {
         currentScreen = Screen.WaitingForPassword;
     }
 
-    string GenerateRandomPassword()
+    string GenerateRandomPassword(int level)
 	{
 		string[] passwordList = { "" };
 		if (level == 1)
