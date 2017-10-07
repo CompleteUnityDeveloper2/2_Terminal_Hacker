@@ -44,3 +44,8 @@ Here are the lectures of the course for this section...
 1. Why we are introducing variables at this stage.
 2. What a variable is and how to use one.
 3. Using our first variable.
+
+### 7 Functions With Variable Parameters ###
+1. Where we are in our journey towards messages.
+2. How go DECLARE, DEFINE & CALL functions with parameters.
+3. How to PASS variable parameters to a function.

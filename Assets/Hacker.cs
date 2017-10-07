@@ -6,12 +6,11 @@ public class Hacker : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ShowMainMenu();
+        ShowMainMenu("Hello Ben");
     }
 
-    void ShowMainMenu () {
+    void ShowMainMenu (string greeting) {
         Terminal.ClearScreen();
-        string greeting = "Hello Ben";
         Terminal.WriteLine(greeting);
         Terminal.WriteLine("What would you like to hack into?");
         Terminal.WriteLine("Press 1 for the local library");
