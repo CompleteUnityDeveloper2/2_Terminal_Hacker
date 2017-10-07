@@ -11,6 +11,8 @@ public class Hacker : MonoBehaviour {
 
     void ShowMainMenu () {
         Terminal.ClearScreen();
+        string greeting = "Hello Ben";
+        Terminal.WriteLine(greeting);
         Terminal.WriteLine("What would you like to hack into?");
         Terminal.WriteLine("Press 1 for the local library");
         Terminal.WriteLine("Press 2 for the police station");

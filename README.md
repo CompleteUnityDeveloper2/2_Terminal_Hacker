@@ -39,3 +39,8 @@ Here are the lectures of the course for this section...
 1. How C# is organised into functions, classes, etc.
 2. The format of a C# function (without parameters).
 3. About naming and encapsulating.
+
+### 6 Introducing Variables ###
+1. Why we are introducing variables at this stage.
+2. What a variable is and how to use one.
+3. Using our first variable.
