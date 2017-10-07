@@ -34,3 +34,8 @@ Here are the lectures of the course for this section...
 1. Introducing our `Terminal.WriteLine()` command.
 2. Your firs look at our Docs.
 3. Write and share your game menu scree.
+
+### 5 Your First Function ###
+1. How C# is organised into functions, classes, etc.
+2. The format of a C# function (without parameters).
+3. About naming and encapsulating.
