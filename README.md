@@ -15,17 +15,22 @@ This branch is the course branch, each commit corresponds to a lecture in the co
 ## Lecture List
 Here are the lectures of the course for this section...
 
-### 1 Welcome To Section 2
+### 1 Welcome To Section 2 ###
 1. About the provided terminal asset.
 2. You will learn foundational C# skills.
 3. Experienced developers should skim this section.
 
-### 2 Terminal Hacker Game Design
+### 2 Terminal Hacker Game Design ###
 1. Identify our game design intention for the Terminal Hacker game.
 2. Game flow and screens required for this game.
 3. Creating our library of anagrams.
 
-### 3 Import WM2000 Terminal Asset
+### 3 Import WM2000 Terminal Asset ###
 1. Download the asset from lecture resources.
 2. Import your first asset pack.
 3. How to rename a Unity project.
+
+### 4 Using Our Terminal.WriteLine() ###
+1. Introducing our `Terminal.WriteLine()` command.
+2. Your firs look at our Docs.
+3. Write and share your game menu scree.
