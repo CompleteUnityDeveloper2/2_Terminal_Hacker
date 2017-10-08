@@ -65,3 +65,10 @@ Here are the lectures of the course for this section...
 1. How important being able to "branch" is.
 2. The syntax (structure) of an `if` statement.
 3. Giving our player control over the menu system.
+
+### 11 We’re About To Pick-Up Pace ###
+1. Well done getting this far.
+2. You've learned ALL the programming basics now.
+3. I'd love your comments against this lecture.
+4. What are we doing well? What could we do better?
+5. We're about to pick up pace and code much faster.
