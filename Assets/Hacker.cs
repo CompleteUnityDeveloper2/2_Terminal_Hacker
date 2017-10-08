@@ -7,6 +7,7 @@ public class Hacker : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         ShowMainMenu("Hello Ben");
+        print("Hello " + "World");
     }
 
     void ShowMainMenu (string greeting) {
@@ -20,6 +21,6 @@ public class Hacker : MonoBehaviour {
 
     void OnUserInput(string input)
     {
-        print(input);
+        print(input == "1");
     }
 }

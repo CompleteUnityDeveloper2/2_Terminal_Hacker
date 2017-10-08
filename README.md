@@ -54,3 +54,9 @@ Here are the lectures of the course for this section...
 1. Messages vs. Functions in C#.
 2. An analogy to help you understand messages.
 3. Using our `OnUserInput(string input)` message.
+
+### 9 C# Operators & Expressions ###
+1. Operators are like special functions that do things.
+2. Syntax is the rules about the way code is written.
+3. Expressions evaluate to something, e.g. `1 == 2` is `false`
+4. Using an pure expression to detect if the user typed 1.
