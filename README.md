@@ -73,8 +73,12 @@ Here are the lectures of the course for this section...
 4. What are we doing well? What could we do better?
 5. We're about to pick up pace and code much faster.
 
-
 ### 12 Member Variables To Hold State ###
 1. What member variables are.
 2. Why they are useful.
 2. Use member variables sparingly to hold state.
+
+### 13 Enumerating Our Game States ###
+1. Introducing a finite state machine.
+2. How 'enum'erations are helpful here.
+3. Declaring and using our first 'enum'
