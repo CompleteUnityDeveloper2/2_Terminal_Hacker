@@ -60,3 +60,8 @@ Here are the lectures of the course for this section...
 2. Syntax is the rules about the way code is written.
 3. Expressions evaluate to something, e.g. `1 == 2` is `false`
 4. Using an pure expression to detect if the user typed 1.
+
+### 10 Conditional Program Flow Using if ###
+1. How important being able to "branch" is.
+2. The syntax (structure) of an `if` statement.
+3. Giving our player control over the menu system.
