@@ -49,3 +49,8 @@ Here are the lectures of the course for this section...
 1. Where we are in our journey towards messages.
 2. How go DECLARE, DEFINE & CALL functions with parameters.
 3. How to PASS variable parameters to a function.
+
+### 8 Messages Are Special Functions ###
+1. Messages vs. Functions in C#.
+2. An analogy to help you understand messages.
+3. Using our `OnUserInput(string input)` message.

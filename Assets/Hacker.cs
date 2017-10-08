@@ -17,9 +17,9 @@ public class Hacker : MonoBehaviour {
         Terminal.WriteLine("Press 2 for the police station");
         Terminal.WriteLine("Enter your selection:");
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    void OnUserInput(string input)
+    {
+        print(input);
+    }
 }
