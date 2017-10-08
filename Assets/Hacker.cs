@@ -1,8 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hacker : MonoBehaviour {
+
+    // Game state
+    int level;
 
 	// Use this for initialization
 	void Start ()
@@ -26,7 +30,17 @@ public class Hacker : MonoBehaviour {
         {
             ShowMainMenu();
         }
-        else if  (input == "007")
+        else if (input == "1")
+        {
+            level = 1;
+            StartGame();
+        }
+        else if (input == "2")
+        {
+            level = 2;
+            StartGame();
+        }
+        else if (input == "007")
         {
             Terminal.WriteLine("Please select a level Mr Bond!");
         }
@@ -34,5 +48,10 @@ public class Hacker : MonoBehaviour {
         {
             Terminal.WriteLine("Please choose a valid level");
         }
+    }
+
+    void StartGame()
+    {
+        Terminal.WriteLine("You have chosen level " + level);
     }
 }
