@@ -97,5 +97,10 @@ Here are the lectures of the course for this section...
 ### 16 Arrays Of Variables ###
 1. What an array is.
 2. Why we would use one.
-3. How to create an array in C#
+3. How to create an array in C#.
 4. Using arrays to store our passwords.
+
+### 17 switch vs if ###
+1. A trick with using `bool` and `if`.
+2. Introducing `switch`
+3. When to use `switch` vs `if`
