@@ -93,3 +93,9 @@ Here are the lectures of the course for this section...
 1. Don't be afraid to fail.
 2. A solid challenge for you.
 3. Getting basic password working.
+
+### 16 Arrays Of Variables ###
+1. What an array is.
+2. Why we would use one.
+3. How to create an array in C#
+4. Using arrays to store our passwords.
