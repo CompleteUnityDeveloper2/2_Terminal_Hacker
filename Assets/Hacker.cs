@@ -27,11 +27,19 @@ public class Hacker : MonoBehaviour {
 
     void OnUserInput(string input)
     {
-        if (input == "menu")
+        if (input == "menu") // we can always go direct to main menu
         {
             ShowMainMenu();
-        } // TODO handle differently depending on screen
-        else if (input == "1")
+        }
+        else if (currentScreen == Screen.MainMenu)
+        {
+            RunMainMenu(input);
+        }
+    }
+
+    void RunMainMenu(string input)
+    {
+        if (input == "1")
         {
             level = 1;
             StartGame();

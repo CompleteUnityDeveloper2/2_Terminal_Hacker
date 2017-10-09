@@ -82,3 +82,9 @@ Here are the lectures of the course for this section...
 1. Introducing a finite state machine.
 2. How 'enum'erations are helpful here.
 3. Declaring and using our first 'enum'
+
+### 14 Refactoring Our Code ###
+1. Getting an eye for when code it too complex.
+2. Using the "extract" tool of your IDE.
+3. A function should only do one thing.
+4. Moving our game forward.
