@@ -88,3 +88,8 @@ Here are the lectures of the course for this section...
 2. Using the "extract" tool of your IDE.
 3. A function should only do one thing.
 4. Moving our game forward.
+
+### 15 Your First Solo ###
+1. Don't be afraid to fail.
+2. A solid challenge for you.
+3. Getting basic password working.
