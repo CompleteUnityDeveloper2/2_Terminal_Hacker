@@ -104,3 +104,9 @@ Here are the lectures of the course for this section...
 1. A trick with using `bool` and `if`.
 2. Introducing `switch`
 3. When to use `switch` vs `if`
+
+### 18 Introducing Random Behaviour ###
+1. How namespaces can "clash" with `Random`.
+2. Using Unity's `Random.Range()`.
+3. How random numbers benefit your game.
+4. How to avoid "caching" information.
