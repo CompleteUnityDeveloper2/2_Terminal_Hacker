@@ -115,3 +115,8 @@ Here are the lectures of the course for this section...
 1. Introducing ASCII art.
 2. How to engage your player's emotions.
 3. An opportunity to get creative.
+
+### 20 Section 2 Integration Challenge ###
+1. Adding a third difficulty level.
+2. Introducing `const` for constants.
+3. Correcting typos!
