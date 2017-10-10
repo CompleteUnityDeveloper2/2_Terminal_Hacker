@@ -120,3 +120,9 @@ Here are the lectures of the course for this section...
 1. Adding a third difficulty level.
 2. Introducing `const` for constants.
 3. Correcting typos!
+
+### 21 Share Online & Play Test ###
+1. How to create a WebGL build.
+2. Using ShareMyGame.com.
+3. Share your game for feedback.
+4. Our first play testing session.
