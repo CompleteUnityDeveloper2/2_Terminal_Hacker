@@ -110,3 +110,8 @@ Here are the lectures of the course for this section...
 2. Using Unity's `Random.Range()`.
 3. How random numbers benefit your game.
 4. How to avoid "caching" information.
+
+### 19 Creating A Win Screen ###
+1. Introducing ASCII art.
+2. How to engage your player's emotions.
+3. An opportunity to get creative.
