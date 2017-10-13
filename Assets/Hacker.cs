@@ -37,6 +37,11 @@ public class Hacker : MonoBehaviour {
         {
             ShowMainMenu();
         }
+        else if (input == "quit" || input == "close" || input == "exit")
+        {
+            Terminal.WriteLine("If on the web close the tab.");
+            Application.Quit();
+        }
         else if (currentScreen == Screen.MainMenu)
         {
             RunMainMenu(input);
@@ -131,13 +136,13 @@ public class Hacker : MonoBehaviour {
                 break;
             case 2:
                 Terminal.WriteLine("You got the prison key!");
+                Terminal.WriteLine("Play again for a greater challenge.");
                 Terminal.WriteLine(@"
  __
 /0 \_______
 \__/-=' = '         
 "
                 );
-                Terminal.WriteLine("Play again for a greater challenge.");
                 break;
             case 3:
                 Terminal.WriteLine(@"

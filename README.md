@@ -126,3 +126,7 @@ Here are the lectures of the course for this section...
 2. Using ShareMyGame.com.
 3. Share your game for feedback.
 4. Our first play testing session.
+
+### 22 Feedback & Bug Fixes ###
+1. How to take feedback.
+2. Bug fixes.
