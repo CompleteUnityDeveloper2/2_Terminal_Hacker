@@ -130,3 +130,10 @@ Here are the lectures of the course for this section...
 ### 22 Feedback & Bug Fixes ###
 1. How to take feedback.
 2. Bug fixes.
+
+### 23 Section 2 Wrap-Up ###
+1. Congratulations.
+2. A recap of what you learned.
+3. Some notable C# you didn't learn.
+4. Some further challenge ideas.
+5. Start the next section right away.
