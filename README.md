@@ -33,7 +33,7 @@ Here are the lectures of the course for this section...
 ### 4 Using Our Terminal.WriteLine() ###
 1. Introducing our `Terminal.WriteLine()` command.
 2. Your firs look at our Docs.
-3. Write and share your game menu scree.
+3. Write and share your game menu screen.
 
 ### 5 Your First Function ###
 1. How C# is organised into functions, classes, etc.
