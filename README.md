@@ -66,6 +66,13 @@ Here are the lectures of the course for this section...
 2. The syntax (structure) of an `if` statement.
 3. Giving our player control over the menu system.
 
+### 10b Instructor Hangout 2.1 ###
+1. A brief explanation of supplied function.
+2. How to download previous versions of Unity.
+3. A little more about the `void` keyword.
+4. About our "spiral syllabus" approach.
+5. A quick overview of our optoinal forum.
+
 ### 11 We’re About To Pick-Up Pace ###
 1. Well done getting this far.
 2. You've learned ALL the programming basics now.
