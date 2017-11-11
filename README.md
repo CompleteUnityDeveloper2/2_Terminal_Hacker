@@ -128,6 +128,15 @@ Here are the lectures of the course for this section...
 2. Introducing `const` for constants.
 3. Correcting typos!
 
+### 20b Instructor Hangout 2.2 ###
+1. Refactoring & extra steps on PC (thanks Daniel).
+2. Playback speed, closed caption and self-pacing.
+3. Comments on switch vs if (thanks Jeepty).
+4. How to use our spiffy course repo on GitHub.
+5. About deleting your Library folder (ShadeWolf).
+6. Keep sharing screenshots, video clips next.
+7. We’d love a review :-)
+
 ### 21 Share Online & Play Test ###
 1. How to create a WebGL build.
 2. Using ShareMyGame.com.
