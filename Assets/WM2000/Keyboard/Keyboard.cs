@@ -34,7 +34,10 @@ public class Keyboard : MonoBehaviour
         }
         if (connectedToTerminal)
         {
-            connectedToTerminal.ReceiveFrameInput(Input.inputString);
+            if(Input.anyKeyDown)
+            {
+                connectedToTerminal.ReceiveFrameInput(Input.inputString);
+            }
         }
     }
 
