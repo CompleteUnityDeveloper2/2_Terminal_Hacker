@@ -1,8 +1,8 @@
 # Complete Unity Developer 2.0 - Section 2 - Terminal Hacker.
 
-This is the long-awaited sequel to the Complete Unity Developer - one of the most successful e-learning courses on the internet! Completely re-worked from scratch with brand-new projects, our latest teaching techniques,. You will benefit from the fact we have already taught over 250,000 students game development, many shipping commercial games as a result.
+This is the [Complete Unity C# Developer 3D](http://gdev.tv/cu2github), the long-awaited sequel to the [Complete Unity C# Developer 2D](http://gdev.tv/cudgithub) - one of the most successful e-learning courses on the internet! Completely re-worked from scratch with brand-new projects, our latest teaching techniques,. You will benefit from the fact we have already taught over 350,000 students game development, many shipping commercial games as a result.
 
-You're welcome to download, fork or do whatever else legal with all the files! The real value is in our huge, high-quality online tutorials that accompany this repo.
+You're welcome to download, fork or do whatever else legal with all the files! The real value is in our huge, high-quality online tutorials that accompany this repo. You can check out the course here: [Complete Unity C# Developer 3D](http://gdev.tv/cu2github)
 
 ## By In This Section
 C# functions, refactoring, enumerations, basic state machines. Arguments, parameters, strings, conditionals, variables. Whitespace management, bug fixes and basic game design. (Ref: TH_CU2)
